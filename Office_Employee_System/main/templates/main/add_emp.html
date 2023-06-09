@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+
+{% block title %}Add Employee{% endblock %}
+
+{% block content %}
+    <form method="post" class="container">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text">First Name: </span>
+            <input type="text" class="form-control" name="first_name">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Last Name: </span>
+            <input type="text" class="form-control" name="last_name">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Department: </span>
+            <input type="number" class="form-control" name="dept">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Role: </span>
+            <input type="number" class="form-control" name="role">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Salary: </span>
+            <input type="number" class="form-control" name="salary">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Bonus: </span>
+            <input type="number" class="form-control" name="bonus">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Ph-no: </span>
+            <input type="number" class="form-control" name="phone">
+        </div>
+        <button type="submit" name="save" value="saved" class="btn btn-success">Save</button>
+    </form>
+{% endblock %}

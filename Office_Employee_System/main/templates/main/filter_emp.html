@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% block title %}Filter Employee{% endblock %}
+
+{% block content %}
+    <form method="post" class="container">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text">First or Last Name: </span>
+            <input type="text" class="form-control" name="name">
+        </div>
+         <div class="input-group mb-3">
+            <span class="input-group-text">Department: </span>
+            <input type="text" class="form-control" name="dept">
+        </div>
+         <div class="input-group mb-3">
+            <span class="input-group-text">Role: </span>
+            <input type="text" class="form-control" name="role">
+        </div>
+        <button type="submit" name="search" value="searched" class="btn btn-warning">Search</button>
+    </form>
+{% endblock %}

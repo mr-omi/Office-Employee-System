@@ -1,0 +1,58 @@
+{% extends "main/base.html" %}
+
+{% block title %}UPDATE{% endblock %}
+
+{% block content %}
+    <form method="post" class="container">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text">First Name: </span>
+            <input type="text" class="form-control" name="first_names" placeholder="Enter Your First Name">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Last Name: </span>
+            <input type="text" class="form-control" name="last_names" placeholder="Enter Your Last Name">
+        </div>
+        <button type="submit" name="search" value="searched" class="btn btn-success">Search</button>
+    </form>
+    <br>
+    {% for emp in emps %}
+        <h2 style="margin-bottom:20px;">Details of {{emp.first_name}} {{emp.last_name}}</h2>
+        <form method="post" class="container">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <span class="input-group-text">First Name: </span>
+                <input type="text" class="form-control" name="first_name" value="{{emp.first_name}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Last Name: </span>
+                <input type="text" class="form-control" name="last_name" value="{{emp.last_name}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Department: </span>
+                <input type="number" class="form-control" name="dept" value="{{emp.dept.id}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Role: </span>
+                <input type="number" class="form-control" name="role" value="{{emp.role.id}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Salary: </span>
+                <input type="number" class="form-control" name="salary" value="{{emp.salary}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Bonus: </span>
+                <input type="number" class="form-control" name="bonus" value="{{emp.bonus}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Ph-no: </span>
+                <input type="number" class="form-control" name="phone" value="{{emp.phone}}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Hiring Date: </span>
+                <input type="date" class="form-control" name="hire_date" value="{{emp.hire_date}}">
+            </div>
+            <button type="submit" name="save" value="saved" class="btn btn-success" style="margin-bottom:20px;">Save</button>
+        </form>
+    {% endfor %}
+{% endblock %}

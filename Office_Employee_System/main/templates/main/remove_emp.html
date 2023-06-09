@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block title %}Remove Employee{% endblock %}
+
+{% block content %}
+    <form method="post" class="container">
+        {% csrf_token %}
+        {% for emp in emps %}
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" name="c{{emp.id}}" value="clicked">
+                </div>
+                <input type="text" class="form-control" value="{{emp.first_name}} {{emp.last_name}}">
+            </div>
+        {% endfor %}
+        <button type="submit" name="delete" value="deleted" class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}
